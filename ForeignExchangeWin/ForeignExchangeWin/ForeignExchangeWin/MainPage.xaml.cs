@@ -28,16 +28,22 @@
             decimal pesos = 0;
             if (decimal.TryParse(PesosEntry.Text, out pesos))
             {
+
+
+                var dollars = pesos / 3003.003M;
+                var euros = pesos / 3531.05105M;
+                var pounds = pesos / 3907.23724M;
+
+                DollarsEntry.Text = string.Format("{0:C2}", dollars);
+                EurosEntry.Text = string.Format("{0:C2}", euros);
+                PoundsEntry.Text = string.Format("{0:C2}", pounds);
+
+            }
+            else
+            {
                 DisplayAlert("Error", "You must enter a value numeric in pesos ..", "Accept");
             }
-
-            var dollars = pesos / 3003.003M;
-            var euros   = pesos / 3531.05105M;
-            var pounds  = pesos / 3907.23724M;
-
-            DollarsEntry.Text = string.Format("{0:C2}", dollars);
-            EurosEntry.Text   = string.Format("{0:C2}", euros);
-            PoundsEntry.Text  = string.Format("{0:C2}", pounds);
+        
 
         }
     }
